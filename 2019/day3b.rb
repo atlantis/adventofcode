@@ -46,4 +46,4 @@ plane.each do |x, ys|
   end
 end
 
-puts "Minimum combibed steps to intersection: #{intersections.map{|i| i[:total_steps] }.min}"
+puts "Minimum combined steps to intersection: #{intersections.map{|i| i[:total_steps] }.min}"
