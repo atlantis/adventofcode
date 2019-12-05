@@ -47,13 +47,21 @@ Benchmark.bm(20) do |bm|
 				digits[-1] += 1
 				digits
 			else
-				(digits.join('').to_i + 1).to_s.split('').map(&:to_i)
+				int_to_digits(digits_to_int(digits) + 1)
 			end
 		end
 
-		digits = valid_range.begin.to_s.split('').map(&:to_i)
+		def int_to_digits(i)
+			i.to_s.split('').map(&:to_i)
+		end
 
-		while digits.join('').to_i <= valid_range.end
+		def digits_to_int(digits)
+			digits.join('').to_i
+		end
+
+		digits = int_to_digits(valid_range.begin)
+
+		while digits_to_int(digits) <= valid_range.end
 			num_not_decending = 0
 			adjacent = {}
 			digits.each_with_index do |d, i| 
